@@ -18,6 +18,14 @@
 
 button {
     -webkit-tap-highlight-color: transparent;
+    transition: all 200ms;
+}
+
+@media (hover: hover) {
+    button:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -98,7 +106,6 @@ h1 span {
     border-radius: 10px;
     background-color: var(--white);
     cursor: pointer;
-    transition: all ease 100ms;
 }
 
 .btn-equal {
@@ -112,13 +119,6 @@ h1 span {
 
 .btn:active {
     transform: scale(0.95);
-}
-
-@media (hover: hover) {
-    .btn:hover {
-        opacity: 0.8;
-        box-shadow: 0 0 15px black;
-    }
 }
 
 section:nth-of-type(2) {
@@ -138,7 +138,6 @@ h2 {
     font-style: italic;
     text-align: left;
     width: 100%;
-    margin-bottom: 20px;
     padding: 10px;
     font-size: 30px;
 }
@@ -148,6 +147,20 @@ h2 {
     overflow-y: auto;
     font-size: 20px;
 }
+#history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#history-header button {
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 30px;
+}
+
 .history-line {
     line-break: anywhere;
     width: 100%;

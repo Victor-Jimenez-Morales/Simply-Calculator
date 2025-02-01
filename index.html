@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
         <!-- Styles CSS -->
         <link rel="stylesheet" href="./css/style.css" />
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/17ce2f89d1.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- Calculator -->
@@ -43,11 +45,13 @@
 
         <!-- History -->
         <section>
-            <h2>History</h2>
-            <div id="history-list">
-                <!-- <p class="history-line">213-22343*53+23423/442335=13234231487423984723947891</p> -->
+            <div id="history-header">
+                <h2>History</h2>
+                <button onclick="clearHistory()"><i class="fa-solid fa-trash-can"></i></button>
             </div>
+            <div id="history-list"></div>
         </section>
+
         <script src="./js/script.js"></script>
     </body>
 </html>

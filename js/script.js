@@ -94,36 +94,43 @@ function calculateResult() {
 
 function getHistory() {
     const history = document.querySelector("#history-list");
+    let operationHistory = JSON.parse(localStorage.getItem("operationHistory"));
+    console.log(operationHistory);
 
-    if (localStorage.length == 0) {
+    history.innerHTML = "";
+
+    if (operationHistory == null) {
         const element = document.createElement("p");
 
         element.textContent = "There isn't any operations yet!";
 
         history.append(element);
+
+        operationHistory = [];
+        localStorage.setItem("operationHistory", JSON.stringify(operationHistory));
     } else {
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            const value = localStorage.getItem(key);
+        for (const value of operationHistory.reverse()) {
             const element = document.createElement("p");
 
             element.classList.add("history-line");
-            element.textContent = `${key} = ${value}`;
+            element.textContent = value;
             history.prepend(element);
         }
     }
 }
 
 function addToHistory(operation, result) {
-    const history = document.querySelector("#history-list");
-    const element = document.createElement("p");
+    let operationHistory = JSON.parse(localStorage.getItem("operationHistory"));
 
-    localStorage.setItem(operation, result);
+    operationHistory.unshift(`${operation} = ${result}`);
+    localStorage.setItem("operationHistory", JSON.stringify(operationHistory));
 
-    element.classList.add("history-line");
-    element.textContent = `${operation} = ${result}`;
-    history.prepend(element);
-    // getHistory();
+    getHistory();
+}
+
+function clearHistory() {
+    localStorage.clear();
+    getHistory();
 }
 
 addEventListener("keydown", function (event) {
