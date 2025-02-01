@@ -95,11 +95,12 @@ function calculateResult() {
 function getHistory() {
     const history = document.querySelector("#history-list");
     let operationHistory = JSON.parse(localStorage.getItem("operationHistory"));
-    console.log(operationHistory);
 
     history.innerHTML = "";
+    if (operationHistory == null) operationHistory = [];
 
-    if (operationHistory == null) {
+
+    if (operationHistory.length == 0) {
         const element = document.createElement("p");
 
         element.textContent = "There isn't any operations yet!";
