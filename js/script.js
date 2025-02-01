@@ -99,7 +99,6 @@ function getHistory() {
     history.innerHTML = "";
     if (operationHistory == null) operationHistory = [];
 
-
     if (operationHistory.length == 0) {
         const element = document.createElement("p");
 
